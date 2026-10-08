@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Contador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Contador</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="counter">
+    <h1>{{ contador() }}</h1>
+
+    <div class="counter-actions">
+      <ion-button fill="outline" (click)="disminuir()">Disminuir</ion-button>
+      <ion-button (click)="incrementar()">Incrementar</ion-button>
+    </div>
+
+    <ion-button fill="clear" color="medium" (click)="reiniciar()">
+      Reiniciar
+    </ion-button>
+  </div>
+
+  <ion-item>
+    <ion-label position="stacked">Nombre</ion-label>
+    <ion-input
+      [(ngModel)]="nombre"
+      placeholder="Escribe un nombre"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Dirección</ion-label>
+    <ion-input
+      [(ngModel)]="direccion"
+      placeholder="Escribe una dirección"
+      type="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="enviar()">
+    Guardar contador
+  </ion-button>
+
+  @if (enviado()) {
+    <p>
+      {{ nombreGuardado() || 'Contador' }}: {{ contador() }}
+    </p>
+  }
+</ion-content>

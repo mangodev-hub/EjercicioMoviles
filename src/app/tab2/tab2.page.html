@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Resumen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Resumen</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  @if (datos.enviado()) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Hola, {{ datos.nombre() || 'usuario' }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>El número que enviaste es {{ datos.contador() }}.</p>
+        <p>La dirección es {{ datos.direccion() }}.</p>
+        <p>Es múltiplo de 2: {{ datos.multiplo2() ? 'Sí' : 'No' }}.</p>
+      </ion-card-content>
+    </ion-card>
+  } @else {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Hola</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Por favor, ve a la pestaña de contador y guarda un número.</p>
+      </ion-card-content>
+    </ion-card>
+  }
+</ion-content>
